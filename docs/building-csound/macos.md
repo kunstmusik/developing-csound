@@ -110,13 +110,49 @@ We also test Csound using various suites of automated tests:
 
 * commandline tests: These are a suite of CSD files that test various aspects of Csound's functionality. You can run these tests by typing `make csdtests` in the build directory.
 * regression tests: These are a secondary suite of CSD files that  various aspects of Csound's functionality. You can run these tests by typing `make regression` in the build directory.
-* soak tests: These are a suite of CSD files that test Csound's stability over time. You can run these tests by typing `make soak` in the build directory.
-* Unit Tests: These are a suite of tests that test individual functions of Csound. You can run these tests by typing `make test` in the build directory.
+* soak tests: These are a suite of CSD files that test Csound's stability over time. You can run these tests by typing `make soak` in the build directory. These take a very long time to generate wav files which are used for comparison in future runs. 
+* Unit Tests: These are a suite of tests that test individual functions of Csound. You can run these tests by typing `make test` in the build directory. If you are unable to run `make test`, it may be due to not having build the tests. These require having the gtest library installed as well as configuring the build using `-DBUILD_STATIC_LIBRARY=ON`.
 
 ### Installing Csound
 
 6. If you are satisfied with the build, you can install Csound to your system by typing `sudo make install`. This will copy the `csound` executable and the plugins to the appropriate directories on your system. Once installed, assuming you have `/usr/local/bin` in your PATH environment variable, you will be able to run `csound` from the command-line without needing to specify the path to the executable. 
 
+:::note
+
+If you are installing Csound to your system, you may need to run `sudo make install` to copy the `csound` executable and the plugins to the appropriate directories on your system.
+
+You may also want to build a Release build of csound. You can do this by specifying the build type when running cmake. For example, you can run `cmake -DCMAKE_BUILD_TYPE=Release ..` to build a release build of Csound.
+
+:::
+
 
 ## Building and Developing with XCode
+
+To build Csound using XCode, create a directory in which to create the XCode project. For example, you might make a `build-xcode` directory in the root of the Csound source code. If using this folder, you would type the following to configure with CMake to generate an XCode project:
+
+```bash
+cmake -G Xcode ..
+```
+
+This will generate an XCode project in the `build-xcode` directory. You can open this project in XCode by typing `open Csound.xcodeproj`, or double-clicking the .xcodeproj in the Finder, or opening XCode and selecting the project.
+
+Once in XCode, you can click the top bar to select different targets (called *Schemes* in Xcode parlance) to build:
+
+![XCode Targets](/img/xcode_targets.png)
+
+Each target corresponds to executable and libarary targets that you can similarly build with make. For example, `csound-bin` is the target used for main csound executable. 
+
+In general, you'll usually run the `ALL_BUILD` target at least once to build all the targets. By default, all built targets will be placed in the `build-xcode/Debug` folder as the default CMAKE_BUILD_TYPE is Debug. You will need to know this path for setting OPCODE7DIR64 when developing and testing. 
+
+## Running Csound in XCode
+
+To run the csound commandline, select the `csound-bin` targe. Configure the run settings for this target by going to the dropdown menu for Schemes and choose `Edit Scheme`, or use `cmd-shift-,` to open the scheme editor.
+
+![XCode Scheme Editor](/img/xcode_scheme_editor.png)
+
+Here you will set commandline arguments to pass to csoound as well as set environment variables (i.e., OPCODE7DIR64). You can use the checkbox to enable and disable arguments and variables, which is handy when having to switch between different files regularly.
+
+
+
+
 

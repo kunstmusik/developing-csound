@@ -1,0 +1,8 @@
+{
+  "label": "Building Csound",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn about Csound's build system and how to build Csound from source."
+  }
+}

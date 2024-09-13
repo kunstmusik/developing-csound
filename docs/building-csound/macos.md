@@ -119,8 +119,6 @@ We also test Csound using various suites of automated tests:
 
 :::note
 
-If you are installing Csound to your system, you may need to run `sudo make install` to copy the `csound` executable and the plugins to the appropriate directories on your system.
-
 You may also want to build a Release build of csound. You can do this by specifying the build type when running cmake. For example, you can run `cmake -DCMAKE_BUILD_TYPE=Release ..` to build a release build of Csound.
 
 :::

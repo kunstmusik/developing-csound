@@ -153,10 +153,16 @@ I myself use [Cursor](https://cursor.com), an editor based on VS Code that has a
 
 For running Csound in VS Code, I tend to do a mix of using the commandline to do full builds and quick run tests, while using VS Code's "Run and Debug" sidebar to debug using VS Code. 
 
-To use "Run and Debug", open up the sidebar. At the top will be a gear icon that you can use to open up the launch.json file. Here you can define your own run/debug targets. 
+![Run and Debug - Initial State](/img/vscode_run_debug_initial.png)
+
+To use "Run and Debug", open up the sidebar. The targets and configuration for run and debug are contained in .vscode/launch.json. If you have not created a file before, your Run and Debug sidebar will look like above.
+
+To create a new launch.json and to define a new target for running trapped.csd, first select the "create  a launch.json file" link. VS Code will create a file at .vscode/launch.json with an initial, mostly empty file, as shown below:
 
 
-To create a target for running trapped.csd, use the blue "Add configuration..." button and choose "C/C++: (gdb) Launch". A template command should be created for you that you can then edit. For example, try the following:
+![Run and Debug - Initial launch.json](/img/vscode_run_debug_empty_launch_json.png)
+
+Next, use the blue "Add configuration..." button and choose "C/C++: (gdb) Launch". A template command should be created for you that you can then edit. For example, try the following:
 
 
 ```
@@ -196,7 +202,12 @@ To create a target for running trapped.csd, use the blue "Add configuration..." 
 }
 ```
 
-The relevant fields to update are "name", "program", "environment", and "args". Once you have the above in your file, save it. The Run and Debug sidebar should now have a "Trapped" target that you can select to run and debug csound with gdb. Select the Play button to run and hopefully you will now hear Dr. B's Trapped in Convert. 
+
+The relevant fields to update are "name", "program", "environment", and "args". Once you have the above in your file, save it. The Run and Debug sidebar should now have a "Trapped" target that you can select to run and debug csound with gdb. 
+
+![Run and Debug - Main](/img/vscode_run_debug_main.png)
+
+Select the Play button to run and hopefully you will now hear Dr. B's Trapped in Convert. 
 
 We'll discuss setting breakpoints and debugging further in the next part of the workshop.
 

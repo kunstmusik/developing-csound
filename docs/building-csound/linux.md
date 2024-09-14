@@ -143,6 +143,11 @@ Like the commandline, we will need to run cmake's configure as well as run the b
 
 The CMake sidebar provides a very nice view of all of the targets that are a part of the project. Each target shows what source code files are used as part of that target and can be easier to navigate than having to read through the various CMakeFiles.txt to understand what files exactly are used for what executables and plugins. 
 
+:::note
+
+I myself use [Cursor](https://cursor.com), an editor based on VS Code that has a large number AI-assistance features built into it. If you're familiar with VS Code already, and have not looked at Cursor, I recommend checking it out during this workshop. It is compatible with VS Code extensions and has a number of features that can help you write code faster and with fewer errors.
+
+:::
 
 ## Running Csound in VS Code 
 

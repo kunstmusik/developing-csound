@@ -55,7 +55,7 @@ const config: Config = {
       title: 'Developing Csound',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+          src: 'img/android-chrome-192x192.png',
       },
       items: [
         // {

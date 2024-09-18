@@ -5,7 +5,8 @@ sidebar_position: 3
 # Source Code Walkthrough 
 
 * Physical Design - Code organization
-* Public Headers and API
+* CMake Build System
+* Public Headers, API, Doxygen
 * Navigating Source Code
 * Commandline Options
 * Parser and Lexer
